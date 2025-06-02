@@ -7,6 +7,7 @@ using ComponentArrays: ComponentArray
 using DispatchDoctor: @stable
 using DynamicExpressions: DynamicExpressions
 using Random: MersenneTwister
+using SymbolicRegression: get_metadata, with_metadata, OperatorEnum
 
 Base.@kwdef struct BinOp{M,P} <: Function
     """Simply to mark different operators in printing."""
