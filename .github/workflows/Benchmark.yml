@@ -1,4 +1,4 @@
-name: Julia Example with BenchmarkTools.jl
+name: Benchmark
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   benchmark:
-    name: Run julia benchmark example
+    name: Run julia benchmarks
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
