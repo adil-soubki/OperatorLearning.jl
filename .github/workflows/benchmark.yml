@@ -44,6 +44,7 @@ jobs:
           julia --project --color=yes -e '
             using Pkg;
             Pkg.instantiate();
+            Pkg.add("BenchmarkTools")
             include("benchmarks.jl")'
 
       - name: Store benchmark result
@@ -66,7 +67,7 @@ jobs:
         with:
           name: Julia benchmark result
           tool: 'julia'
-          output-file-path: examples/julia/output.json
+          output-file-path: benchmark/output.json
           # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
