@@ -6,8 +6,8 @@ SUITE["rand10"] = @benchmarkable rand(10)
 SUITE["rand20"] = @benchmarkable rand(20)
 
 # Write your benchmarks here.
-include("../example.jl")
-SUITE["example"] = @benchmarkable main()
+# include("../example.jl")
+# SUITE["example"] = @benchmarkable main()
 
 # Run the suite.
 tune!(SUITE)
