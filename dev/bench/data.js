@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748958622414,
+  "lastUpdate": 1748965362376,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -144,6 +144,42 @@ window.BENCHMARK_DATA = {
             "value": 84.30848861283644,
             "unit": "ns",
             "extra": "gctime=0\nmemory=224\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":966,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "4324b0beaf48203a42f14ee9c6ba9c194ade4c93",
+          "message": "update benchmarking",
+          "timestamp": "2025-06-03T16:20:19+01:00",
+          "tree_id": "dbd833a307a0bc47a1700c017e93d369f8808b37",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/4324b0beaf48203a42f14ee9c6ba9c194ade4c93"
+        },
+        "date": 1748965361415,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3684564214,
+            "unit": "ns",
+            "extra": "gctime=452522795\nmemory=8927207048\nallocs=4240013\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 273048756260,
+            "unit": "ns",
+            "extra": "gctime=37366650832\nmemory=468076837176\nallocs=1842523640\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
