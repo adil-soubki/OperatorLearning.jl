@@ -47,6 +47,7 @@ jobs:
             Pkg.add("BenchmarkTools");
             Pkg.add(url="https://github.com/SymbolicML/DynamicExpressions.jl", rev="skip-fused-kernels");
             include("benchmarks.jl")'
+          git stash
 
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
