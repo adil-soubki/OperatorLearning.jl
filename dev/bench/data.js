@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748956834871,
+  "lastUpdate": 1748957366769,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -72,6 +72,42 @@ window.BENCHMARK_DATA = {
             "value": 83.02286902286902,
             "unit": "ns",
             "extra": "gctime=0\nmemory=224\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":962,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "8698a608a491dc76d03d6b5e54d3a2ddf0823b02",
+          "message": "remove dumb step from benchmarking workflow",
+          "timestamp": "2025-06-03T14:24:14+01:00",
+          "tree_id": "354118b39ab6d3ce6d3a27e96ddbdc44ae946029",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/8698a608a491dc76d03d6b5e54d3a2ddf0823b02"
+        },
+        "date": 1748957366421,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "rand10",
+            "value": 72.09548254620123,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=144\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":974,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "rand20",
+            "value": 82.1407867494824,
+            "unit": "ns",
+            "extra": "gctime=0\nmemory=224\nallocs=2\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":966,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
