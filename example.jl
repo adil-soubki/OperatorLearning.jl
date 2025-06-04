@@ -1,30 +1,6 @@
-using OperatorLearning
-using SymbolicRegression:
-    SRRegressor,
-    OperatorEnum,
-    with_metadata,
-    get_metadata,
-    with_contents,
-    get_contents,
-    Node,
-    ComposableExpression,
-    TemplateStructure,
-    TemplateExpression,
-    TemplateExpressionSpec,
-    ParamVector,
-    @template_spec,
-    get_options,
-    Options,
-    MultitargetSRRegressor,
-    square,
-    cube,
-    neg,
-    equation_search,
-    calculate_pareto_frontier,
-    eval_tree_array,
-    compute_complexity,
-    string_tree
 using MLJBase: machine, fit!, predict, report
+using OperatorLearning: UnaOp, BinOp, generate_expression_spec
+using SymbolicRegression: SymbolicRegression as SR
 
 # ================== Data ================== #
 
@@ -43,55 +19,26 @@ end
 
 # ================== Main ================== #
 
-# Define the template structure function
-function template_combiner((; f1, f2), (; p1, p2, p3, p4, p5, p6), (x1, x2, y1, y2))
-    # Update the parameters of the expressions
-    f1_with_params = set_params(f1, (p1, p2), (p3, p4, p5, p6))
-    f2_with_params = set_params(
-        f2, (p1, p2), (p3, p4, p5, p6); operators=get_metadata(f1_with_params).operators
-    )
-    # Evaluate the expressions
-    f1_val = f1_with_params(x1, x2)
-    f2_val = f2_with_params(x1, x2)
-    # Return the loss
-    return abs2(y1 - f1_val) + abs2(y2 - f2_val)
-end
-
 function main()
     X, y = generate_data(; n_samples=100)
+    n_input = length([k for k in keys(X) if startswith(String(k), "x")])
+    n_output = length([k for k in keys(X) if startswith(String(k), "y")])
 
     n_unaops, n_binops = 2, 4
     unary_operators = [UnaOp(; index=i) for i in 1:n_unaops]
     binary_operators = [BinOp(; index=i) for i in 1:n_binops]
 
-    n_unaop_params = length(unary_operators[1].params_and_state[1])
-    n_binop_params = length(binary_operators[1].params_and_state[1])
-
-
-    n_input = 2
-    #length([k for k in keys(X) if startswith(String(k), "x")])
-    n_output = 2
-    #length([k for k in keys(X) if startswith(String(k), "y")])
-
-    # Create the template structure with parameters
-    structure = TemplateStructure{(:f1, :f2),(:p1, :p2, :p3, :p4, :p5, :p6)}(
-        template_combiner;
-        num_parameters=(
-            p1=n_unaop_params,
-            p2=n_unaop_params,
-            p3=n_binop_params,
-            p4=n_binop_params,
-            p5=n_binop_params,
-            p6=n_binop_params,
-        ),
-        num_features=(f1=n_input, f2=n_input),
+    # This generates an expression spec to learn operators
+    expression_spec = generate_expression_spec(
+        n_input=n_input,
+        n_output=n_output,
+        una_ops=unary_operators,
+        bin_ops=binary_operators
     )
-    # Create the expression spec
-    expression_spec = TemplateExpressionSpec(; structure=structure)
 
     # Fit the model
     my_loss(pred, target) = pred
-    regressor = SRRegressor(;
+    regressor = SR.SRRegressor(;
         unary_operators=unary_operators,
         binary_operators=binary_operators,
         expression_spec=expression_spec,

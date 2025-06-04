@@ -124,6 +124,7 @@ store operators in their metadata (access with `get_metadata`
 and set with `with_metadata`). So, here, we just need to
 update these operators before evaluation.
 =#
+# TODO: Move to TemplateExpressionUtils?
 
 @inline function set_params(expr, una_params, bin_params; operators=nothing)
     operators = @something operators let
