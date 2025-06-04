@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749037640502,
+  "lastUpdate": 1749037974345,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -324,6 +324,42 @@ window.BENCHMARK_DATA = {
             "value": 299348667032,
             "unit": "ns",
             "extra": "gctime=32812782383\nmemory=453846401736\nallocs=1955714208\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "Adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "77919bcd255773a0240b56175963845032342118",
+          "message": "Update README.md",
+          "timestamp": "2025-06-04T12:26:30+01:00",
+          "tree_id": "e1c67cbae41527682a334d961a1fdc760d07521f",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/77919bcd255773a0240b56175963845032342118"
+        },
+        "date": 1749037973441,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3470753662,
+            "unit": "ns",
+            "extra": "gctime=340181251.5\nmemory=8927207048\nallocs=4240013\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 278184922177,
+            "unit": "ns",
+            "extra": "gctime=30388460381\nmemory=428304330320\nallocs=1830122393\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
