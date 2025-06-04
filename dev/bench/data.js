@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748965362376,
+  "lastUpdate": 1749036562436,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -180,6 +180,42 @@ window.BENCHMARK_DATA = {
             "value": 273048756260,
             "unit": "ns",
             "extra": "gctime=37366650832\nmemory=468076837176\nallocs=1842523640\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "85d84a6484719aa057ed1a838e59f26ab607061a",
+          "message": "add util to generate template expression specs",
+          "timestamp": "2025-06-04T12:03:24+01:00",
+          "tree_id": "d0c741c5c9630327e9b570127db856271d79079c",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/85d84a6484719aa057ed1a838e59f26ab607061a"
+        },
+        "date": 1749036562092,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3498752115.5,
+            "unit": "ns",
+            "extra": "gctime=368994878.5\nmemory=8927207048\nallocs=4240013\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 320857297315,
+            "unit": "ns",
+            "extra": "gctime=37020459597\nmemory=471891046320\nallocs=2045550917\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
