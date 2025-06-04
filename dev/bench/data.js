@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749036562436,
+  "lastUpdate": 1749037180227,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -216,6 +216,42 @@ window.BENCHMARK_DATA = {
             "value": 320857297315,
             "unit": "ns",
             "extra": "gctime=37020459597\nmemory=471891046320\nallocs=2045550917\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "9eb6f3f79d300da80769e9fdd0c96eb219c4433c",
+          "message": "comment uploadcoveralls action for now",
+          "timestamp": "2025-06-04T12:12:45+01:00",
+          "tree_id": "a4b225ed954b1b3a4b49c0a6994de0a8873e0b5c",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/9eb6f3f79d300da80769e9fdd0c96eb219c4433c"
+        },
+        "date": 1749037179819,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3494279573,
+            "unit": "ns",
+            "extra": "gctime=359724164\nmemory=8927207048\nallocs=4240013\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 318793158050,
+            "unit": "ns",
+            "extra": "gctime=36337878769\nmemory=488938962448\nallocs=2034533280\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
