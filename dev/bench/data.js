@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749037974345,
+  "lastUpdate": 1749127445072,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -216,6 +216,42 @@ window.BENCHMARK_DATA = {
             "value": 278184922177,
             "unit": "ns",
             "extra": "gctime=30388460381\nmemory=428304330320\nallocs=1830122393\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "574b37888438db644a4f08a8a1ad99abb6b3060d",
+          "message": "similarity, bugfixes, new examples\n\n- add function to measure similarity of learned operators to reference\n  operators\n- change template_combiner loss to use MAE\n- add function to update operator parameters to match the best learned\n  function (or any function for that matter)\n- add main.jl which shows a basic scenario.\n- add various todo notes and fixmes.",
+          "timestamp": "2025-06-05T13:15:19+01:00",
+          "tree_id": "ab6a00c7e467d685fd81819a7dba6329d74b3b4b",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/574b37888438db644a4f08a8a1ad99abb6b3060d"
+        },
+        "date": 1749127444527,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3573041263.5,
+            "unit": "ns",
+            "extra": "gctime=404812488.5\nmemory=8927207048\nallocs=4240013\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 265665263914,
+            "unit": "ns",
+            "extra": "gctime=30996482189\nmemory=383409473608\nallocs=1731621710\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
