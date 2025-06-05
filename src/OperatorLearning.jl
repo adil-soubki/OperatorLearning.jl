@@ -1,13 +1,16 @@
 module OperatorLearning
 
 export UnaOp, BinOp, set_params
-export generate_template_combiner, generate_expression_spec
+export generate_expression_spec, update_operators
+export similarity
 
 # Write your package code here.
 include("Operators.jl")
+include("Similarity.jl")
 include("TemplateExpressionUtils.jl")
 
 using .OperatorsModule: UnaOp, BinOp, set_params
-using .TemplateExpressionUtilsModule: generate_expression_spec
+using .SimilarityModule: similarity
+using .TemplateExpressionUtilsModule: generate_expression_spec, update_operators
 
 end  # OperatorLearning

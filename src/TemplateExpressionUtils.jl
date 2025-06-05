@@ -1,6 +1,6 @@
 module TemplateExpressionUtilsModule
 
-using ..OperatorsModule: set_params
+using ..OperatorsModule: UnaOp, BinOp, set_params
 using SymbolicRegression:
     get_metadata,
     TemplateStructure,
@@ -47,7 +47,7 @@ function generate_expression_spec(; n_input, n_output, una_ops, bin_ops)
             end
         end
         f_vals = [f(xs...) for f in f_with_params]
-        return sum(abs2(y - f_val) for (y, f_val) in zip(ys, f_vals))
+        return sum(abs(y - f_val) for (y, f_val) in zip(ys, f_vals))
     end
 
     # Build TemplateStructure and TemplateExpressionSpec
@@ -58,6 +58,42 @@ function generate_expression_spec(; n_input, n_output, una_ops, bin_ops)
     )
 
     return TemplateExpressionSpec(; structure=structure)
+end
+
+# There is an issue (i.e., a bug) where the learned operator parameters are
+# only available on the learned equations (not the machine or model).
+# This function takes an equation, extracts the learned parameters, and
+# returns the updated operators.
+# XXX: Not sure this is properly passing all the needed params to
+#   the operator constructor.
+# XXX: I think this should just be done in set_params somewhere.
+# NOTE: Running this updates equation.metadata.operators also.
+function update_operators(equation)
+    unaops = ntuple(
+        i -> let
+            # extract the learned parameters
+            new_params = equation.metadata.parameters[i]
+            # build an updated operator
+            old_params, old_state = equation.metadata.operators.unaops[i].params_and_state
+            old_params[:] .= new_params
+            UnaOp(; index=i, params_and_state=(new_params, old_state))
+        end,
+        Val(length(equation.metadata.operators.unaops))
+    )
+    binops = ntuple(
+        i -> let
+            # extract the learned parameters
+            new_params = equation.metadata.parameters[
+                i + length(equation.metadata.operators.unaops)
+            ]
+            # build an updated operator
+            old_params, old_state = equation.metadata.operators.binops[i].params_and_state
+            old_params[:] .= new_params
+            BinOp(; index=i, params_and_state=(new_params, old_state))
+        end,
+        Val(length(equation.metadata.operators.binops))
+    )
+    return unaops, binops
 end
 
 end  # TemplateExpressionUtilsModule

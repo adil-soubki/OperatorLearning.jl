@@ -8,6 +8,8 @@ using DispatchDoctor: @stable
 using DynamicExpressions: DynamicExpressions
 using Random: MersenneTwister
 using SymbolicRegression: get_metadata, with_metadata, OperatorEnum
+# TODO: Cannot actually change the network architecture right now.
+# TODO: Generalize the arity of these. One class all all arities.
 
 Base.@kwdef struct BinOp{M,P} <: Function
     """Simply to mark different operators in printing."""
@@ -21,6 +23,7 @@ Base.@kwdef struct BinOp{M,P} <: Function
 
     """The Lux model skeleton"""
     model::M = Chain(              # Equivalent to nn.Sequential
+        # Dense(2, 1)              # Used for main.jl currently.
         Dense(2, n_hidden, relu),  # Equivalent to [nn.Linear, nn.ReLU]
         (Dense(n_hidden, n_hidden, relu) for _ in 1:n_layers)...,
         Dense(n_hidden, 1),
