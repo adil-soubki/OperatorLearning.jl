@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749204207754,
+  "lastUpdate": 1749222641293,
   "repoUrl": "https://github.com/adil-soubki/OperatorLearning.jl",
   "entries": {
     "Julia benchmark result": [
@@ -288,6 +288,42 @@ window.BENCHMARK_DATA = {
             "value": 306443728456,
             "unit": "ns",
             "extra": "gctime=37875673279\nmemory=448875081536\nallocs=1874946298\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "committer": {
+            "email": "5231841+adil-soubki@users.noreply.github.com",
+            "name": "adil",
+            "username": "adil-soubki"
+          },
+          "distinct": true,
+          "id": "9d91db1547056deb02b3d4494f3d275f545e4988",
+          "message": "refactor operators into on Lop class, and more\n\n- refactor UnaOp and BinOp into one Lop{N} struct\n- actually support changing the underlying model structure\n- add LuxUtils.jl for more ergonomic skeleton generation",
+          "timestamp": "2025-06-06T15:46:22+01:00",
+          "tree_id": "1c95e726a0457fa5347b94b2d28bf186c32e9dc6",
+          "url": "https://github.com/adil-soubki/OperatorLearning.jl/commit/9d91db1547056deb02b3d4494f3d275f545e4988"
+        },
+        "date": 1749222640437,
+        "tool": "julia",
+        "benches": [
+          {
+            "name": "expression",
+            "value": 3330478682,
+            "unit": "ns",
+            "extra": "gctime=341827996.5\nmemory=8805604104\nallocs=2350007\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
+          },
+          {
+            "name": "example",
+            "value": 229948864341,
+            "unit": "ns",
+            "extra": "gctime=32248538114\nmemory=397666923600\nallocs=1171574409\nparams={\"gctrial\":true,\"time_tolerance\":0.05,\"evals_set\":false,\"samples\":10000,\"evals\":1,\"gcsample\":false,\"seconds\":5,\"overhead\":0,\"memory_tolerance\":0.01}"
           }
         ]
       }
