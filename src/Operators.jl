@@ -10,6 +10,8 @@ using Random: MersenneTwister
 using SymbolicRegression: get_metadata, with_metadata, OperatorEnum
 # TODO: Cannot actually change the network architecture right now.
 # TODO: Generalize the arity of these. One class all all arities.
+# TODO: The activation function used biases the learning A LOT.
+#   Make this a parameter for SR?
 
 Base.@kwdef struct BinOp{M,P} <: Function
     """Simply to mark different operators in printing."""
@@ -167,6 +169,7 @@ update these operators before evaluation.
         expr;
         operators=operators,
         eval_options=DynamicExpressions.EvalOptions(use_fused=Val(false))
+        # ^ Avoid some "optimizations" that are slower with these operators.
     )
 end
 
