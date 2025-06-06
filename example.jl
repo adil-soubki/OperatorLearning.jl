@@ -1,5 +1,5 @@
 using MLJBase: machine, fit!, predict, report
-using OperatorLearning: UnaOp, BinOp, generate_expression_spec
+using OperatorLearning: Lop, generate_expression_spec, dense_ffn
 using SymbolicRegression: SymbolicRegression as SR
 
 # ================== Data ================== #
@@ -25,8 +25,8 @@ function main()
     n_output = length([k for k in keys(X) if startswith(String(k), "y")])
 
     n_unaops, n_binops = 2, 4
-    unary_operators = [UnaOp(; index=i) for i in 1:n_unaops]
-    binary_operators = [BinOp(; index=i) for i in 1:n_binops]
+    unary_operators = [Lop{1}(dense_ffn(1, 16, 1); index=i) for i in 1:n_unaops]
+    binary_operators = [Lop{2}(dense_ffn(2, 16, 1); index=i) for i in 1:n_binops]
 
     # This generates an expression spec to learn operators
     expression_spec = generate_expression_spec(

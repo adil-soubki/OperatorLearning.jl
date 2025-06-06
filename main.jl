@@ -1,8 +1,9 @@
 #=
 Right now this shows the simplest possible learning scenario.
 =#
+using Lux: Chain, Dense
 using MLJBase: machine, fit!, predict, report
-using OperatorLearning: UnaOp, BinOp, generate_expression_spec, similarity, update_operators
+using OperatorLearning: Lop, generate_expression_spec, similarity, update_operators
 using SymbolicRegression: SymbolicRegression as SR
 
 # ================== Data ================== #
@@ -42,8 +43,8 @@ function main()
 
     # XXX: For some reasons changing n_layers, n_hidden, etc... throws an error.
     n_unaops, n_binops = 0, 2
-    unary_operators = [UnaOp(; index=i) for i in 1:n_unaops]
-    binary_operators = [BinOp(; index=i) for i in 1:n_binops]
+    unary_operators = [Lop{1}(Dense(1, 1); index=i) for i in 1:n_unaops]
+    binary_operators = [Lop{2}(Dense(2, 1); index=i) for i in 1:n_binops]
 
     # This generates an expression spec to learn operators
     expression_spec = generate_expression_spec(
@@ -70,6 +71,7 @@ function main()
     fit!(mach)
     # Update model operator parameters to match the best learned equation
     update_operators(mach.report[:fit].equations[mach.report[:fit].best_idx])
+
     # Print similarity of learned operators to some reference operators
     similarity(mach.model.unary_operators)
     similarity(mach.model.binary_operators)

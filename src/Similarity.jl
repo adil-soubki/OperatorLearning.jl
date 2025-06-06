@@ -1,6 +1,6 @@
 module SimilarityModule
 
-using ..OperatorsModule: UnaOp, BinOp
+using ..OperatorsModule: Lop, operator_arity
 using PrettyTables: pretty_table, ft_printf
 using Statistics: mean
 using SymbolicRegression: square, cube, inv, neg
@@ -10,7 +10,7 @@ using SymbolicRegression: square, cube, inv, neg
 #   - data used for computing similarity
 #   For now this is all hardcoded.
 
-function similarity(lop::UnaOp)
+function similarity(lop::Lop{1})
     operators = [sin, cos, exp, square, cube, inv, neg, abs]
     X = randn(Float32, 1000) * 100  # Use Float32 for consistency
 
@@ -29,7 +29,7 @@ function similarity(lop::UnaOp)
     return similarities
 end
 
-function similarity(lop::BinOp)
+function similarity(lop::Lop{2})
     operators = [+, *, /, -]
     X = randn(Float32, 2, 1000) * 100  # Use Float32 for consistency
 
@@ -52,8 +52,9 @@ function similarity(lops)
     if length(lops) == 0
         return  # Nothing to compute.
     end
-    if !all([typeof(first(lops)) == typeof(lop) for lop in lops])
-        error("All operators must have the same arity.")
+    arities = [operator_arity(lop) for lop in lops]
+    if !all(==(first(arities)), arities)
+        error("All operators must have the same arity. Found arities: $arities")
     end
 
     # Get similarities for each operator

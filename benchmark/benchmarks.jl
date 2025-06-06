@@ -13,8 +13,8 @@ SUITE["example"] = @benchmarkable main()
 
 function benchmark_expression_setup()
     n_unaops, n_binops = 2, 4
-    unary_operators = [UnaOp(; index=i) for i in 1:n_unaops]
-    binary_operators = [BinOp(; index=i) for i in 1:n_binops]
+    unary_operators = [Lop{1}(dense_ffn(1, 16, 1); index=i) for i in 1:n_unaops]
+    binary_operators = [Lop{2}(dense_ffn(2, 16, 1); index=i) for i in 1:n_binops]
 
     n_unaop_params = length(unary_operators[1].params_and_state[1])
     n_binop_params = length(binary_operators[1].params_and_state[1])

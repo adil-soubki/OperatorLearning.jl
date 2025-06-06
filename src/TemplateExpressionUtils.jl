@@ -1,6 +1,6 @@
 module TemplateExpressionUtilsModule
 
-using ..OperatorsModule: UnaOp, BinOp, set_params
+using ..OperatorsModule: Lop, set_params
 using SymbolicRegression:
     get_metadata,
     TemplateStructure,
@@ -74,9 +74,13 @@ function update_operators(equation)
             # extract the learned parameters
             new_params = equation.metadata.parameters[i]
             # build an updated operator
-            old_params, old_state = equation.metadata.operators.unaops[i].params_and_state
+            old_unaop = equation.metadata.operators.unaops[i]
+            old_params, old_state = old_unaop.params_and_state
             old_params[:] .= new_params
-            UnaOp(; index=i, params_and_state=(new_params, old_state))
+            Lop{1}(
+                deepcopy(old_unaop.model);  # XXX: Is deepcopy really needed here?
+                index=i, params_and_state=(new_params, old_state)
+            )
         end,
         Val(length(equation.metadata.operators.unaops))
     )
@@ -87,9 +91,13 @@ function update_operators(equation)
                 i + length(equation.metadata.operators.unaops)
             ]
             # build an updated operator
-            old_params, old_state = equation.metadata.operators.binops[i].params_and_state
+            old_binop = equation.metadata.operators.binops[i]
+            old_params, old_state = old_binop.params_and_state
             old_params[:] .= new_params
-            BinOp(; index=i, params_and_state=(new_params, old_state))
+            Lop{2}(
+                deepcopy(old_binop.model);  # XXX: Is deepcopy really needed here?
+                index=i, params_and_state=(new_params, old_state)
+            )
         end,
         Val(length(equation.metadata.operators.binops))
     )
